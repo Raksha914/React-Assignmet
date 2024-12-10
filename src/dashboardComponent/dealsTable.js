@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../theme/themeContext';
+import '../theme/theme.css';
 
 const DealsTable = () => {
+  const {theme}=useContext(ThemeContext);
   const deals = [
     { name: 'Collins', stage: 'Conversation', value: '$04,51,000', probability: '85%', status: 'Lost' },
     { name: 'Konopelski', stage: 'Pipeline', value: '$14,51,000', probability: '56%', status: 'Won' },
@@ -10,7 +13,7 @@ const DealsTable = () => {
   ];
 
   return (
-    <table className="deals-table">
+    <table className={`deals-table ${theme==="dark"?"dashboard-custom-dark":"dashboard-custom-light"}`}>
       <thead>
         <tr>
           <th>Deal Name</th>

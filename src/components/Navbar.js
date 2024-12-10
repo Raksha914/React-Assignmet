@@ -1,99 +1,150 @@
-import React from "react";
-import { Navbar, Form, Button, Dropdown } from "react-bootstrap";
-import { BsSun, BsGear, BsBell, BsPersonCircle } from "react-icons/bs";
+import React, { useContext } from "react";
+import { BsSun, BsGear, BsBell, BsPersonCircle,BsFillGridFill} from "react-icons/bs";
+import { AiOutlinePieChart } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import { ThemeContext } from "../theme/themeContext";
+import "../theme/theme.css";
 
 const Header = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   return (
-    <Navbar bg="light" expand="lg" className="px-3 py-2 border-bottom">
+    <nav
+      className={`navbar px-3 py-2 border-bottom fixed-top ${
+        theme === "dark" ? "navbar-custom-dark" : "navbar-custom-light"
+      }`}
+      style={{ zIndex: "999" }}
+    >
       {/* Logo Section */}
-      <Navbar.Brand href="#" className="d-flex align-items-center" id="logo">
+      <a
+        href="#index"
+        className="navbar-brand d-flex align-items-center"
+        id="logo"
+      >
         <img
           src="https://crms.dreamstechnologies.com/html/template/assets/img/logo.svg"
           alt="Logo"
           className="ms-4"
           style={{ width: "120px", height: "40px" }}
         />
-      </Navbar.Brand>
+      </a>
 
       {/* Toggle Button for Small Screens */}
-      <Button
-        variant="outline-secondary"
-        className="d-lg-none ms-auto me-2"
+      <button
+        className="navbar-toggler d-lg-none ms-auto me-2"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarContent"
+        aria-controls="navbarContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
         style={{ border: "none" }}
       >
         <i className="bi bi-list"></i>
-      </Button>
+      </button>
 
       {/* Search Bar */}
-      <Form className="d-none d-lg-flex w-50 mx-auto">
-        {/* <FormControl
-          type="search"
-          placeholder="Search"
-          className="me-2"
-          aria-label="Search"
-        />
-        <Button variant="outline-secondary">
-          <i className="bi bi-search"></i>
-        </Button> */}
+      <form className="d-none d-lg-flex w-50 mx-auto">
         <div className="input-group">
           <input
             type="text"
             className="form-control"
             placeholder="Search"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
+            aria-label="Search"
           />
-          <span className="input-group-text" id="basic-addon1"><i class="bi bi-search"></i>
+          <span className="input-group-text">
+            <i className="bi bi-search"></i>
           </span>
         </div>
-      </Form>
+      </form>
 
       {/* Icons Section */}
       <div className="d-flex align-items-center ms-auto">
         {/* Light/Dark Mode Toggle */}
-        <Button variant="outline-secondary" className="me-2">
+        <button
+          className="btn btn-outline-secondary me-2"
+          onClick={toggleTheme}
+        >
           <BsSun />
-        </Button>
+        </button>
 
         {/* Settings */}
-        <Button variant="outline-secondary" className="me-2">
+        <button className="btn btn-outline-secondary me-2">
           <BsGear />
-        </Button>
+        </button>
+
+        {/* piechart */}
+        <button className="btn btn-outline-secondary me-2">
+        <AiOutlinePieChart />
+        </button>
 
         {/* Notifications */}
-        <Dropdown className="me-2">
-          <Dropdown.Toggle variant="outline-secondary" id="dropdown-basic">
+        <div className="dropdown me-2">
+          <button
+            className="btn btn-outline-secondary position-relative"
+            type="button"
+            id="dropdownNotifications"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             <BsBell />
-            <span className="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-circle">
+            <span className="position-absolute top-0 start-100 translate-middle badge bg-danger rounded-circle">
               13
             </span>
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Notification 1</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Notification 2</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+          </button>
+          <ul className="dropdown-menu" aria-labelledby="dropdownNotifications">
+            <li>
+              <a className="dropdown-item" href="#/action-1">
+                Notification 1
+              </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#/action-2">
+                Notification 2
+              </a>
+            </li>
+          </ul>
+        </div>
 
         {/* User Profile */}
-        <Dropdown>
-          <Dropdown.Toggle
-            variant="outline-secondary"
-            id="dropdown-profile"
-            className="d-flex align-items-center"
+        <div className="dropdown">
+          <button
+            className="btn btn-outline-secondary dropdown-toggle"
+            type="button"
+            id="dropdownProfile"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
           >
             <BsPersonCircle size={24} />
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/profile">Profile</Dropdown.Item>
-            <Dropdown.Item href="#/settings">Settings</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item href="#/logout">Logout</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+          </button>
+          <ul
+            className="dropdown-menu dropdown-menu-end"
+            aria-labelledby="dropdownProfile"
+          >
+            <li className="d-flex px-2 align-items-center">
+            <BsPersonCircle />
+              <Link className="dropdown-item" to="/profile">
+                Profile
+              </Link>
+            </li>
+            <li className="d-flex px-2 align-items-center">
+            <BsFillGridFill />
+              <a className="dropdown-item" href="#/settings">
+                dashboard
+              </a>
+            </li>
+            <li>
+              <hr className="dropdown-divider" />
+            </li>
+            <li>
+              <a className="dropdown-item" href="#/logout">
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </Navbar>
+    </nav>
   );
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Bar } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -9,10 +9,13 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import { ThemeContext } from '../theme/themeContext';
+import '../theme/theme.css';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const DealsChart = () => {
+  const {theme}=useContext(ThemeContext);
   const data = {
     labels: ['In Pipeline', 'Follow Up', 'Schedule', 'Conversation', 'Won', 'Lost'],
     datasets: [
@@ -32,12 +35,15 @@ const DealsChart = () => {
       },
       title: {
         display: true,
-        text: 'Deals By Stage',
       },
     },
   };
 
-  return <Bar data={data} options={options} />;
+  return (
+    <div className={`card ${theme==="dark"?"dashboard-custom-dark":"dashboard-custom-light"}`}>
+      <Bar data={data} options={options} />
+    </div>
+  )
 };
 
 export default DealsChart;
