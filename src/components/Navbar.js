@@ -1,12 +1,32 @@
 import React, { useContext } from "react";
-import { BsSun, BsGear, BsBell, BsPersonCircle,BsFillGridFill} from "react-icons/bs";
+import { BsSun, BsGear, BsBell, BsPersonCircle, BsFillGridFill } from "react-icons/bs";
 import { AiOutlinePieChart } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { ThemeContext } from "../theme/themeContext";
 import "../theme/theme.css";
+import './theme.css';
+import notificationsData from './notification.json';
+import { TbHelpHexagon } from "react-icons/tb";
+import { AiOutlineWechatWork } from "react-icons/ai";
+import { FaUserPlus, FaChartLine, FaTasks, FaProjectDiagram, FaRegEnvelope } from "react-icons/fa";
+import { BsBuilding } from "react-icons/bs";
+import { BiAnalyse } from "react-icons/bi";
+import { TbPipeline } from "react-icons/tb";
+import { MdLinearScale } from "react-icons/md";
+
 
 const Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleLogout = () => {
+    if (location.pathname.includes('/Logout')) {
+      navigate('/Logout');
+    } else {
+      navigate('/logout');
+    }
+  };
 
   return (
     <nav
@@ -68,43 +88,173 @@ const Header = () => {
           <BsSun />
         </button>
 
-        {/* Settings */}
-        <button className="btn btn-outline-secondary me-2">
-          <BsGear />
-        </button>
-
-        {/* piechart */}
-        <button className="btn btn-outline-secondary me-2">
-        <AiOutlinePieChart />
-        </button>
-
-        {/* Notifications */}
+        {/* grid */}
         <div className="dropdown me-2">
-          <button
-            className="btn btn-outline-secondary position-relative"
+          <button 
+            className="btn btn-outline-secondary"
             type="button"
-            id="dropdownNotifications"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            <BsBell />
-            <span className="position-absolute top-0 start-100 translate-middle badge bg-danger rounded-circle">
-              13
-            </span>
+            <BsFillGridFill />
           </button>
-          <ul className="dropdown-menu" aria-labelledby="dropdownNotifications">
-            <li>
-              <a className="dropdown-item" href="#/action-1">
-                Notification 1
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#/action-2">
-                Notification 2
-              </a>
-            </li>
-          </ul>
+          <div className="dropdown-menu dropdown-menu-end p-3" style={{ width: '600px', maxHeight: '400px' }}>
+            <div className="grid-menu">
+              <Link to="/contacts" className="grid-item">
+                <div className="grid-icon contacts">
+                  <FaUserPlus />
+                </div>
+                <div className="grid-content">
+                  <h4>Contacts</h4>
+                  <p>Add New Contact</p>
+                </div>
+              </Link>
+              
+              <Link to="/deals" className="grid-item">
+                <div className="grid-icon deals">
+                  <FaChartLine />
+                </div>
+                <div className="grid-content">
+                  <h4>Deals</h4>
+                  <p>Add New Deals</p>
+                </div>
+              </Link>
+
+              <Link to="/pipeline" className="grid-item">
+                <div className="grid-icon pipeline">
+                  <MdLinearScale />
+                </div>
+                <div className="grid-content">
+                  <h4>Pipeline</h4>
+                  <p>Add New Pipeline</p>
+                </div>
+              </Link>
+
+              <Link to="/activities" className="grid-item">
+                <div className="grid-icon activities">
+                  <FaTasks />
+                </div>
+                <div className="grid-content">
+                  <h4>Activities</h4>
+                  <p>Add New Activity</p>
+                </div>
+              </Link>
+
+              <Link to="/analytics" className="grid-item">
+                <div className="grid-icon analytics">
+                  <BiAnalyse />
+                </div>
+                <div className="grid-content">
+                  <h4>Analytics</h4>
+                  <p>Shows All Information</p>
+                </div>
+              </Link>
+
+              <Link to="/projects" className="grid-item">
+                <div className="grid-icon projects">
+                  <FaProjectDiagram />
+                </div>
+                <div className="grid-content">
+                  <h4>Projects</h4>
+                  <p>Add New Project</p>
+                </div>
+              </Link>
+
+              <Link to="/company" className="grid-item">
+                <div className="grid-icon company">
+                  <BsBuilding />
+                </div>
+                <div className="grid-content">
+                  <h4>Company</h4>
+                  <p>Add New Company</p>
+                </div>
+              </Link>
+
+              <Link to="/campaign" className="grid-item">
+                <div className="grid-icon campaign">
+                  <FaRegEnvelope />
+                </div>
+                <div className="grid-content">
+                  <h4>Campaign</h4>
+                  <p>Add New Campaign</p>
+                </div>
+              </Link>
+            </div>
+          </div>
         </div>
+
+        {/* diamond */}
+        <Link to="/FAQ">
+        <button className="btn btn-outline-secondary me-2">
+        <TbHelpHexagon />
+        </button>
+        </Link>
+        {/* Piechart */}
+        <Link to="/PieChart">
+        <button className="btn btn-outline-secondary me-2">
+          <AiOutlinePieChart />
+        </button>
+        </Link>
+
+        {/* Notifications */}
+        {/* <div className="p-3 border-bottom">
+            
+          </div> */}
+
+          {/* Notification List */}
+          <div className="dropdown me-2">
+          <Link to="/EmailDashboard">
+          <button
+          className="btn btn-outline-secondary position-relative me-2">
+          <AiOutlineWechatWork />
+          <span className="position-absolute top-0 start-50 translate-middle badge bg-danger rounded-circle" style={{zIndex: "999"}}>
+            8
+          </span>
+        </button>
+        </Link>
+        <button
+          className="btn btn-outline-secondary position-relative"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <BsBell />
+          <span className="position-absolute top-0 start-50 translate-middle badge bg-danger rounded-circle" style={{zIndex: "999"}}>
+            13
+          </span>
+        </button>
+        <div className="dropdown-menu dropdown-menu-end p-0" style={{ width: '350px', maxHeight: '400px', overflow: 'auto' }}>
+          {/* Notification Header */}
+          <div className="p-2">
+            {notificationsData.notifications.map((notification) => (
+              <div key={notification.id} className="dropdown-item p-2 d-flex align-items-start">
+                <img
+                  src={notification.image}
+                  alt=""
+                  className="rounded-circle me-2"
+                  width="40"
+                  height="40"
+                />
+                <div className="flex-grow-1">
+                  <div className="small">
+                    <span className="fw-semibold">{notification.name}</span>
+                    {' '}{notification.message}
+                  </div>
+                  <div className="text-muted small">{notification.time}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        <div className="p-2 border-top d-flex justify-content-between">
+            <Link to="/activity" className="btn btn-link btn-sm text-decoration-none">
+              View all
+            </Link>
+            <button className="btn btn-link btn-sm text-decoration-none text-danger">
+              Clear all
+            </button>
+          </div>
+        </div>
+      </div>
 
         {/* User Profile */}
         <div className="dropdown">
@@ -122,24 +272,27 @@ const Header = () => {
             aria-labelledby="dropdownProfile"
           >
             <li className="d-flex px-2 align-items-center">
-            <BsPersonCircle />
+              <BsPersonCircle />
               <Link className="dropdown-item" to="/profile">
                 Profile
               </Link>
             </li>
             <li className="d-flex px-2 align-items-center">
-            <BsFillGridFill />
+              <BsFillGridFill />
               <a className="dropdown-item" href="#/settings">
-                dashboard
+                Dashboard
               </a>
             </li>
             <li>
               <hr className="dropdown-divider" />
             </li>
             <li>
-              <a className="dropdown-item" href="#/logout">
+              <button 
+                className="dropdown-item" 
+                onClick={handleLogout}
+              >
                 Logout
-              </a>
+              </button>
             </li>
           </ul>
         </div>
