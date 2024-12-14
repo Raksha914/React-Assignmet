@@ -279,9 +279,9 @@ const Header = () => {
             </li>
             <li className="d-flex px-2 align-items-center">
               <BsFillGridFill />
-              <a className="dropdown-item" href="#/settings">
+              <Link className="dropdown-item" to="/dashboard">
                 Dashboard
-              </a>
+              </Link>
             </li>
             <li>
               <hr className="dropdown-divider" />

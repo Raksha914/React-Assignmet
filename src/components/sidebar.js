@@ -159,7 +159,7 @@ const Sidebar = () => {
             alt="User Profile"
             className="profile-img"
           />
-          <div className="user-info">
+          <div className="user-information">
             <h5 className="text-dark">Waseem Akram</h5>
             <p>Web Developer</p>
           </div>
@@ -209,22 +209,12 @@ const Sidebar = () => {
         {dropdownOpen.application && (
           <ul className="submenu">
             <li className="submenu-item">
-              <Link to="/dashboard">
-                <IoChatbubbleEllipsesOutline className="submenu-icon" /> Chat
-              </Link>
-            </li>
-            <li className="submenu-item">
-              <Link to="/dashboard">
-                <IoCallOutline className="submenu-icon" /> Call
-              </Link>
-            </li>
-            <li className="submenu-item">
-              <Link to="/dashboard">
+              <Link to="/CalendarComponent">
                 <IoCalendarOutline className="submenu-icon" /> Calendar
               </Link>
             </li>
             <li className="submenu-item">
-              <Link to="/dashboard">
+              <Link to="/EmailDashboard">
                 <IoMailOutline className="submenu-icon" /> Email
               </Link>
             </li>
@@ -239,7 +229,7 @@ const Sidebar = () => {
               </Link>
             </li>
             <li className="submenu-item">
-              <Link to="/dashboard">
+              <Link to="/FileManager">
                 <IoFolderOutline className="submenu-icon" /> File Manager
               </Link>
             </li>
@@ -362,23 +352,23 @@ const Sidebar = () => {
           <li className="menu-title">CRM Settings</li>
           <li className="menu-item">
             <VscSourceControl className="menu-icon" />
-            <Link to="/sources">Sources</Link>
+            <Link to="/Sources">Sources</Link>
           </li>
           <li className="menu-item">
             <RiErrorWarningLine className="menu-icon" />
-            <Link to="/lost-reason">Lost Reason</Link>
+            <Link to="/LostReason">Lost Reason</Link>
           </li>
           <li className="menu-item">
             <FaLayerGroup className="menu-icon" />
-            <Link to="/contact-stage">Contact Stage</Link>
+            <Link to="/ContactStage">Contact Stage</Link>
           </li>
           <li className="menu-item">
             <FaIndustry className="menu-icon" />
-            <Link to="/industry">Industry</Link>
+            <Link to="/Industry">Industry</Link>
           </li>
           <li className="menu-item">
             <FaPhone className="menu-icon" />
-            <Link to="/calls">Calls</Link>
+            <Link to="/Calls">Calls</Link>
           </li>
         </ul>
 
@@ -388,15 +378,15 @@ const Sidebar = () => {
           <li className="menu-title">User Management</li>
           <li className="menu-item">
             <FaUsersCog className="menu-icon" />
-            <Link to="/manage-users">Manage Users</Link>
+            <Link to="/ManageUser">Manage Users</Link>
           </li>
           <li className="menu-item">
             <FaUserShield className="menu-icon" />
-            <Link to="/roles-permissions">Roles and Permissions</Link>
+            <Link to="/Roles">Roles and Permissions</Link>
           </li>
           <li className="menu-item">
             <FaTrash className="menu-icon" />
-            <Link to="/delete-request">Delete Request</Link>
+            <Link to="/DeleteAccount">Delete Request</Link>
           </li>
         </ul>
 
@@ -414,19 +404,19 @@ const Sidebar = () => {
           <li className="menu-title">Content</li>
           <li className="menu-item">
             <HiOutlineDocumentText className="menu-icon" />
-            <Link to="/pages">Pages</Link>
+            <Link to="/Pages">Pages</Link>
           </li>
           <li className="menu-item">
             <HiOutlineLocationMarker className="menu-icon" />
-            <Link to="/locations">Locations</Link>
+            <Link to="/Location">Locations</Link>
           </li>
           <li className="menu-item">
             <VscFeedback className="menu-icon" />
-            <Link to="/testimonials">Testimonials</Link>
+            <Link to="/Testimonials">Testimonials</Link>
           </li>
           <li className="menu-item">
             <VscQuestion className="menu-icon" />
-            <Link to="/faq">FAQ</Link>
+            <Link to="/FAQ">FAQ</Link>
           </li>
         </ul>
 
@@ -435,203 +425,73 @@ const Sidebar = () => {
           <li className="menu-title">Support</li>
           <li className="menu-item">
             <HiOutlineChatAlt className="menu-icon" />
-            <Link to="/contact-messages">Contact Messages</Link>
+            <Link to="/Support">Contact Messages</Link>
           </li>
           <li className="menu-item">
             <HiOutlineTicket className="menu-icon" />
-            <Link to="/tickets">Tickets</Link>
+            <Link to="/Tickets">Tickets</Link>
           </li>
         </ul>
 
         {/* Settings Section */}
         <ul className="menu">
           <li className="menu-title">Settings</li>
+          <Link to="/profile">
           <li
-            className={`menu-item ${dropdownOpen.generalSettings ? "active" : ""}`}
-            onClick={() => toggleDropdown("generalSettings")}
-          >
+            className="menu-item">
             <MdSettings className="menu-icon" />
             General Settings
-            <FaChevronDown className="dropdown-icon" />
           </li>
-          {dropdownOpen.generalSettings && (
-            <ul className="submenu">
-              <li className="submenu-item">
-                <Link to="/profile">
-                  <FaUser className="submenu-icon" /> Profile
-                </Link>
-              </li>
-              <li className="submenu-item">
-                <Link to="/security">
-                  <MdSecurity className="submenu-icon" /> Security
-                </Link>
-              </li>
-              <li className="submenu-item">
-                <Link to="/notifications">
-                  <MdNotifications className="submenu-icon" /> Notifications
-                </Link>
-              </li>
-              <li className="submenu-item">
-                <Link to="/connected-apps">
-                  <MdApps className="submenu-icon" /> Connected Apps
-                </Link>
-              </li>
-            </ul>
-          )}
+          </Link>
 
+          <Link to="/profile">
           <li
-            className={`menu-item ${dropdownOpen.websiteSettings ? "active" : ""}`}
-            onClick={() => toggleDropdown("websiteSettings")}
+            className="menu-item"
+           
           >
             <AiOutlineGlobal className="menu-icon" />
             Website Settings
-            <FaChevronDown className="dropdown-icon" />
+            
           </li>
-          {dropdownOpen.websiteSettings && (
-            <ul className="submenu">
-              <li className="submenu-item">
-                <Link to="/company-settings">
-                  <MdBusiness className="submenu-icon" /> Company Settings
-                </Link>
-              </li>
-              <li className="submenu-item">
-                <Link to="/localization">
-                  <MdLocationOn className="submenu-icon" /> Localization
-                </Link>
-              </li>
-              <li className="submenu-item">
-                <Link to="/prefixes">
-                  <TbBrandGravatar className="submenu-icon" /> Prefixes
-                </Link>
-              </li>
-              <li className="submenu-item">
-                <Link to="/preferences">
-                  <IoSettingsOutline className="submenu-icon" /> Preferences
-                </Link>
-              </li>
-              <li className="submenu-item">
-                <Link to="/appearance">
-                  <IoGlobeOutline className="submenu-icon" /> Appearance
-                </Link>
-              </li>
-              <li className="submenu-item">
-                <Link to="/language">
-                  <MdLanguage className="submenu-icon" /> Language
-                </Link>
-              </li>
-            </ul>
-          )}
+          </Link>
 
           {/* App Settings */}
+          <Link to="/profile">
           <li
-            className={`menu-item ${dropdownOpen.appSettings ? "active" : ""}`}
-            onClick={() => toggleDropdown("appSettings")}
+            className="menu-item"
+            
           >
             <AiFillSetting className="menu-icon" />
             App Settings
-            <FaChevronDown className="dropdown-icon" />
+            
           </li>
-          {dropdownOpen.appSettings && (
-            <ul className="submenu">
-              <li className="submenu-item">
-                <Link to="/invoice-settings">
-                  <FaFileInvoiceDollar className="submenu-icon" /> Invoice Settings
-                </Link>
-              </li>
-              <li className="submenu-item">
-                <Link to="/printers">
-                  <AiOutlinePrinter className="submenu-icon" /> Printers
-                </Link>
-              </li>
-              <li className="submenu-item">
-                <Link to="/custom-fields">
-                  <AiOutlineFieldTime className="submenu-icon" /> Custom Fields
-                </Link>
-              </li>
-            </ul>
-          )}
-
+          </Link>
           {/* System Settings */}
+          <Link to="/profile">
           <li
-            className={`menu-item ${dropdownOpen.systemSettings ? "active" : ""}`}
-            onClick={() => toggleDropdown("systemSettings")}
+            className="menu-item"
           >
             <IoSettingsOutline className="menu-icon" />
             System Settings
-            <FaChevronDown className="dropdown-icon" />
           </li>
-          {dropdownOpen.systemSettings && (
-            <ul className="submenu">
-              <li className="submenu-item">
-                <Link to="/email-settings">
-                  <AiOutlineMail className="submenu-icon" /> Email Settings
-                </Link>
-              </li>
-              <li className="submenu-item">
-                <Link to="/sms-gateways">
-                  <IoMailOutline className="submenu-icon" /> SMS Gateways
-                </Link>
-              </li>
-              <li className="submenu-item">
-                <Link to="/gdpr-cookies">
-                  <TbCookie className="submenu-icon" /> GDPR Cookies
-                </Link>
-              </li>
-            </ul>
-          )}
+          </Link>
 
           {/* Financial Settings */}
+          <Link to="/profile">
           <li
-            className={`menu-item ${dropdownOpen.financialSettings ? "active" : ""}`}
-            onClick={() => toggleDropdown("financialSettings")}
-          >
+            className="menu-item">
             <IoCashOutline className="menu-icon" />
             Financial Settings
-            <FaChevronDown className="dropdown-icon" />
           </li>
-          {dropdownOpen.financialSettings && (
-            <ul className="submenu">
-              <li className="submenu-item">
-                <Link to="/payment-gateways">
-                  <AiOutlineCreditCard className="submenu-icon" /> Payment Gateways
-                </Link>
-              </li>
-              <li className="submenu-item">
-                <Link to="/bank-accounts">
-                  <AiOutlineBank className="submenu-icon" /> Bank Accounts
-                </Link>
-              </li>
-              <li className="submenu-item">
-                <Link to="/tax-rates">
-                  <AiOutlinePercentage className="submenu-icon" /> Tax Rates
-                </Link>
-              </li>
-            </ul>
-          )}
-
+          </Link>
           {/* Storage Settings */}
+          <Link to="/profile">
           <li
-            className={`menu-item ${dropdownOpen.storageSettings ? "active" : ""}`}
-            onClick={() => toggleDropdown("storageSettings")}
-          >
+            className="menu-item" >
             <MdStorage className="menu-icon" />
             Storage Settings
-            <FaChevronDown className="dropdown-icon" />
           </li>
-          {dropdownOpen.storageSettings && (
-            <ul className="submenu">
-              <li className="submenu-item">
-                <Link to="/storage">
-                  <AiOutlineCloud className="submenu-icon" /> Storage
-                </Link>
-              </li>
-              <li className="submenu-item">
-                <Link to="/ban-ip">
-                  <AiOutlineStop className="submenu-icon" /> Ban IP Address
-                </Link>
-              </li>
-            </ul>
-          )}
+          </Link>
 
           {/* Pages Section */}
           <ul className="menu">
@@ -647,38 +507,13 @@ const Sidebar = () => {
             {dropdownOpen.authentication && (
               <ul className="submenu">
                 <li className="submenu-item">
-                  <Link to="/login">
+                  <Link to="/Logout">
                     <RiLoginCircleLine className="submenu-icon" /> Login
                   </Link>
                 </li>
                 <li className="submenu-item">
-                  <Link to="/register">
+                  <Link to="/Register">
                     <RiRegisteredLine className="submenu-icon" /> Register
-                  </Link>
-                </li>
-                <li className="submenu-item">
-                  <Link to="/forgot-password">
-                    <RiLockPasswordLine className="submenu-icon" /> Forgot Password
-                  </Link>
-                </li>
-                <li className="submenu-item">
-                  <Link to="/reset-password">
-                    <RiLockPasswordLine className="submenu-icon" /> Reset Password
-                  </Link>
-                </li>
-                <li className="submenu-item">
-                  <Link to="/email-verification">
-                    <RiMailCheckLine className="submenu-icon" /> Email Verification
-                  </Link>
-                </li>
-                <li className="submenu-item">
-                  <Link to="/two-step-verification">
-                    <RiShieldKeyholeLine className="submenu-icon" /> 2 Step Verification
-                  </Link>
-                </li>
-                <li className="submenu-item">
-                  <Link to="/lock-screen">
-                    <RiLockLine className="submenu-icon" /> Lock Screen
                   </Link>
                 </li>
               </ul>

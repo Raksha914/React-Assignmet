@@ -38,6 +38,25 @@ import TaskReports from './taskReports/TaskReports';
 import ContactReport from './ContactReport/ContactReport';
 import CompanyReport from './CompanyReport/CompanyReport';
 import DealReport from './DealsReport/DealReport';
+import UserList from './ManageUser/ManageUser';
+import Roles from './Roles/Roles';
+import DeleteAccountRequest from './DeleteUser/DeleteAccount';
+import Settings from './settings/profile';
+import Sources from './Sources/Sources';
+import LostReason from './LostReason/LostReason';
+import ContactStages from './ContactStage/ContactStage';
+import Industry from './Industry/Industry';
+import Calls from './Calls/Calls';
+import Projects from './Support/Support';
+import Tickets from './Tickets/Tickets';
+import Location from './Content/Location';
+import TestimonialsComponent from './Content/Testimonials';
+import PagesComponent from './Content/Pages';
+import CalendarComponent from './calender/CalendarComponent';
+import FileManager from './filemanager/FileManager';
+
+
+
 const MainLayout = ({ children }) => {
   return (
     <div className="app">
@@ -94,11 +113,16 @@ const App = () => {
             <Dashboard />
           </MainLayout>
         } />
-        {/* <Route path="/profile" element={
+        <Route path="/CalendarComponent" element={
+          <MainLayout>
+            <CalendarComponent />
+          </MainLayout>
+        } />
+        <Route path="/profile" element={
           <MainLayout>
             <Settings />
           </MainLayout>
-        } /> */}
+        } />
         <Route path="/activity" element={
           <MainLayout>
             <Activity />
@@ -112,6 +136,11 @@ const App = () => {
         <Route path="/Notes" element={
           <MainLayout>
             <Notes />
+          </MainLayout>
+        } />
+        <Route path="/FileManager" element={
+          <MainLayout>
+            <FileManager />
           </MainLayout>
         } />
         <Route path="/invoice" element={
@@ -234,7 +263,73 @@ const App = () => {
             <DealReport />
           </MainLayout>
         } />
+        <Route path="/ManageUser" element={
+          <MainLayout>
+            <UserList />
+          </MainLayout>
+        } />
+        <Route path="/Roles" element={
+          <MainLayout>
+            <Roles />
+          </MainLayout>
+        } />
+        <Route path="/DeleteAccount" element={
+          <MainLayout>
+            <DeleteAccountRequest />
+          </MainLayout>
+        } />
+        <Route path="/Sources" element={
+          <MainLayout>
+            <Sources />
+          </MainLayout>
+        } />
+        <Route path="/LostReason" element={
+          <MainLayout>
+            <LostReason />
+          </MainLayout>
+        } />
+        <Route path="/ContactStage" element={
+          <MainLayout>
+            <ContactStages />
+          </MainLayout>
+        } />
+        <Route path="/Industry" element={
+          <MainLayout>
+            <Industry />
+          </MainLayout>
+        } />
+        <Route path="/Calls" element={
+          <MainLayout>
+            <Calls />
+          </MainLayout>
+        } />
+        <Route path="/Support" element={
+          <MainLayout>
+            <Projects />
+          </MainLayout>
+        } />
+        <Route path="/Tickets" element={
+          <MainLayout>
+            <Tickets />
+          </MainLayout>
+        } />
+        <Route path="/Pages" element={
+          <MainLayout>
+            <PagesComponent />
+          </MainLayout>
+        } />  
+        <Route path="/Location" element={
+          <MainLayout>
+            <Location />
+          </MainLayout>
+        } />    
+        <Route path="/Testimonials" element={
+          <MainLayout>
+            <TestimonialsComponent />
+          </MainLayout>
+        } />    
       </Routes>
+
     </Router>
   );
 };
