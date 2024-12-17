@@ -1,103 +1,179 @@
 /* Global theme styles */
 .custom-theme-dark {
-    background-color: #171724 !important;
-    color: #fff !important;
-  }
-  
-  .custom-theme-light {
-    background-color: #ffffff !important;
-    color: black !important;
-  }
-  
-  /* Navbar styling */
-  .navbar-custom-dark{
-    background-color: #171724 !important;
-    color: #fff !important;
-  }
-  
-  .navbar-custom-light {
-    background-color: #f8f9fa !important;
-    color: black !important;
-  }
-  
-  /* Sidebar styling */
-  .sidebar-custom-dark {
-    background-color: #171724 !important;
-    color: #fff !important;
-  }
-  
-  .sidebar-custom-light {
-    background-color: #e9ecef !important;
-    color: black !important;
-  }
+  background-color: #171724 !important;
+  color: #fff !important;
+}
 
-  .sidebar-custom-dark .submenu-item li{
-    background-color: #171724 !important;
-    color: #fff !important;
-  }
-  .sidebar-custom-light .submenu-item li{
-    background-color: #e9ecef !important;
-    color: black !important;
-  }
+.custom-theme-light {
+  background-color: #ffffff !important;
+  color: black !important;
+}
 
-  .sidebar-custom-dark .menu-item li{
-    background-color: #171724 !important;
-    color: #fff !important;
-  }
-  
-  .sidebar-custom-light .menu-item li{
-    background-color: #e9ecef !important;
-    color: black !important;
-  }
-  .sidebar-custom-light .menu-item a{
-    color: #171724 !important;
-  }
-  .sidebar-custom-dark .menu-item a{
-    color: #e9ecef !important;
-  }
-  /* .sidebar-custom-light .menu-item a:hover{
+/* Navbar styling */
+.navbar-custom-dark {
+  background-color: #171724 !important;
+  color: #fff !important;
+}
+
+.navbar-custom-light {
+  background-color: #f8f9fa !important;
+  color: black !important;
+}
+
+/* Sidebar styling */
+.sidebar-custom-dark {
+  background-color: #171724 !important;
+  color: #fff !important;
+}
+
+.sidebar-custom-light {
+  background-color: #e9ecef !important;
+  color: black !important;
+}
+
+.sidebar-custom-dark .submenu-item li {
+  background-color: #171724 !important;
+  color: #fff !important;
+}
+.sidebar-custom-light .submenu-item li {
+  background-color: #e9ecef !important;
+  color: black !important;
+}
+
+.sidebar-custom-dark .menu-item li {
+  background-color: #171724 !important;
+  color: #fff !important;
+}
+
+.sidebar-custom-light .menu-item li {
+  background-color: #e9ecef !important;
+  color: black !important;
+}
+.sidebar-custom-light .menu-item a {
+  color: #171724 !important;
+}
+.sidebar-custom-dark .menu-item a {
+  color: #e9ecef !important;
+}
+/* .sidebar-custom-light .menu-item a:hover{
     color: #e9ecef !important;
   } */
-  .sidebar-custom-dark .menu-item a:hover{
-    color: #2b2b40 !important;
-  }
-  .sidebar-custom-dark .user-info h5,.sidebar-custom-dark .user-info p{
-    background-color: #171724 !important;
-    color: #fff !important;
-  }
-  
-  .sidebar-custom-light .user-info h5,.sidebar-custom-light .user-info p{
-    background-color: #e9ecef !important;
-    color: black !important;
-  }
-  
-  /* Dashboard styling */
-  .dashboard-custom-dark {
-    background-color: #171724 !important;
-    color: #fff !important;
-  }
-  
-  .dashboard-custom-light {
-    background-color: #f7f7f7 !important;
-    color: black !important;
-  }
-  .dashboard-custom-dark .section {
-    background-color: #2b2b40 !important;
-    color: #fff !important;
-  }
-  
-  .dashboard-custom-light .section {
-    background-color: #ffffff !important;
-    color: black !important;
-  }
-  .dashboard-custom-dark select {
-    background-color: #171724 !important;
-    color: #fff !important;
-  }
-  
-  .dashboard-custom-light select {
-    background-color: #ffffff !important;
-    color: black !important;
+.sidebar-custom-dark .menu-item a:hover {
+  color: #2b2b40 !important;
+}
+.sidebar-custom-dark .user-info h5,
+.sidebar-custom-dark .user-info p {
+  background-color: #171724 !important;
+  color: #fff !important;
+}
+
+.sidebar-custom-light .user-info h5,
+.sidebar-custom-light .user-info p {
+  background-color: #e9ecef !important;
+  color: black !important;
+}
+
+/* Dashboard styling */
+.dashboard-custom-dark {
+  background-color: #171724 !important;
+  color: #fff !important;
+}
+
+.dashboard-custom-light {
+  background-color: #f7f7f7 !important;
+  color: black !important;
+}
+.dashboard-custom-dark .section {
+  background-color: #2b2b40 !important;
+  color: #fff !important;
+}
+
+.dashboard-custom-light .section {
+  background-color: #ffffff !important;
+  color: black !important;
+}
+.dashboard-custom-dark select {
+  background-color: #171724 !important;
+  color: #fff !important;
+}
+
+.dashboard-custom-light select {
+  background-color: #ffffff !important;
+  color: black !important;
+}
+/* ------------ */
+/* General Reset and Defaults */
+/* General Responsive Styling */
+@media (max-width: 768px) {
+  .navbar-brand img {
+    width: 90px; /* Adjust logo size */
+    height: auto;
+    margin-left: -50px;
   }
 
-  
+  .navbar-toggler {
+    display: block; /* Ensure the toggler is visible */
+    margin-left: -180px;
+  }
+
+  .navbar-collapse {
+    display: none; /* Hide items until toggled */
+  }
+
+  .navbar-collapse.show {
+    display: block; /* Show items when toggled */
+    background: white; /* Add background for readability */
+    padding: 10px;
+  }
+
+  .grid-menu {
+    grid-template-columns: 1fr 1fr; /* Two columns for grid items */
+    gap: 10px;
+  }
+
+  .grid-item {
+    text-align: center; /* Align content properly */
+  }
+  .ms-4 {
+    margin-left: 4rem !important;
+  }
+}
+
+@media (max-width: 540px) {
+  .navbar-brand img {
+    width: 80px;
+  }
+
+  .dropdown-menu {
+    width: 100%; /* Make dropdowns full width */
+  }
+
+  .grid-menu {
+    grid-template-columns: 1fr; /* Single column for grid items */
+  }
+}
+
+@media (max-width: 375px) {
+  .navbar-brand img {
+    width: 70px;
+  }
+
+  .navbar {
+    flex-direction: column; /* Stack navbar elements */
+    align-items: flex-start;
+  }
+
+  .dropdown-menu {
+    width: 100%;
+    left: 0; /* Ensure alignment to the screen */
+  }
+
+  .btn {
+    font-size: 12px; /* Adjust button font sizes */
+    padding: 5px;
+  }
+
+  .input-group {
+    flex-direction: column; /* Stack search bar input */
+  }
+}

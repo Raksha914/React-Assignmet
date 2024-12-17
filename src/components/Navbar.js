@@ -1,19 +1,30 @@
 import React, { useContext } from "react";
-import { BsSun, BsGear, BsBell, BsPersonCircle, BsFillGridFill } from "react-icons/bs";
+import {
+  BsSun,
+  BsGear,
+  BsBell,
+  BsPersonCircle,
+  BsFillGridFill,
+} from "react-icons/bs";
 import { AiOutlinePieChart } from "react-icons/ai";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { ThemeContext } from "../theme/themeContext";
 import "../theme/theme.css";
-import './theme.css';
-import notificationsData from './notification.json';
+import "./theme.css";
+import notificationsData from "./notification.json";
 import { TbHelpHexagon } from "react-icons/tb";
 import { AiOutlineWechatWork } from "react-icons/ai";
-import { FaUserPlus, FaChartLine, FaTasks, FaProjectDiagram, FaRegEnvelope } from "react-icons/fa";
+import {
+  FaUserPlus,
+  FaChartLine,
+  FaTasks,
+  FaProjectDiagram,
+  FaRegEnvelope,
+} from "react-icons/fa";
 import { BsBuilding } from "react-icons/bs";
 import { BiAnalyse } from "react-icons/bi";
 import { TbPipeline } from "react-icons/tb";
 import { MdLinearScale } from "react-icons/md";
-
 
 const Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -21,10 +32,10 @@ const Header = () => {
   const location = useLocation();
 
   const handleLogout = () => {
-    if (location.pathname.includes('/Logout')) {
-      navigate('/Logout');
+    if (location.pathname.includes("/Logout")) {
+      navigate("/Logout");
     } else {
-      navigate('/logout');
+      navigate("/logout");
     }
   };
 
@@ -90,7 +101,7 @@ const Header = () => {
 
         {/* grid */}
         <div className="dropdown me-2">
-          <button 
+          <button
             className="btn btn-outline-secondary"
             type="button"
             data-bs-toggle="dropdown"
@@ -98,7 +109,10 @@ const Header = () => {
           >
             <BsFillGridFill />
           </button>
-          <div className="dropdown-menu dropdown-menu-end p-3" style={{ width: '600px', maxHeight: '400px' }}>
+          <div
+            className="dropdown-menu dropdown-menu-end p-3"
+            style={{ width: "600px", maxHeight: "400px" }}
+          >
             <div className="grid-menu">
               <Link to="/contacts" className="grid-item">
                 <div className="grid-icon contacts">
@@ -109,7 +123,7 @@ const Header = () => {
                   <p>Add New Contact</p>
                 </div>
               </Link>
-              
+
               <Link to="/deals" className="grid-item">
                 <div className="grid-icon deals">
                   <FaChartLine />
@@ -185,15 +199,15 @@ const Header = () => {
 
         {/* diamond */}
         <Link to="/FAQ">
-        <button className="btn btn-outline-secondary me-2">
-        <TbHelpHexagon />
-        </button>
+          <button className="btn btn-outline-secondary me-2">
+            <TbHelpHexagon />
+          </button>
         </Link>
         {/* Piechart */}
         <Link to="/PieChart">
-        <button className="btn btn-outline-secondary me-2">
-          <AiOutlinePieChart />
-        </button>
+          <button className="btn btn-outline-secondary me-2">
+            <AiOutlinePieChart />
+          </button>
         </Link>
 
         {/* Notifications */}
@@ -201,60 +215,74 @@ const Header = () => {
             
           </div> */}
 
-          {/* Notification List */}
-          <div className="dropdown me-2">
+        {/* Notification List */}
+        <div className="dropdown me-2">
           <Link to="/EmailDashboard">
-          <button
-          className="btn btn-outline-secondary position-relative me-2">
-          <AiOutlineWechatWork />
-          <span className="position-absolute top-0 start-50 translate-middle badge bg-danger rounded-circle" style={{zIndex: "999"}}>
-            8
-          </span>
-        </button>
-        </Link>
-        <button
-          className="btn btn-outline-secondary position-relative"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <BsBell />
-          <span className="position-absolute top-0 start-50 translate-middle badge bg-danger rounded-circle" style={{zIndex: "999"}}>
-            13
-          </span>
-        </button>
-        <div className="dropdown-menu dropdown-menu-end p-0" style={{ width: '350px', maxHeight: '400px', overflow: 'auto' }}>
-          {/* Notification Header */}
-          <div className="p-2">
-            {notificationsData.notifications.map((notification) => (
-              <div key={notification.id} className="dropdown-item p-2 d-flex align-items-start">
-                <img
-                  src={notification.image}
-                  alt=""
-                  className="rounded-circle me-2"
-                  width="40"
-                  height="40"
-                />
-                <div className="flex-grow-1">
-                  <div className="small">
-                    <span className="fw-semibold">{notification.name}</span>
-                    {' '}{notification.message}
-                  </div>
-                  <div className="text-muted small">{notification.time}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        <div className="p-2 border-top d-flex justify-content-between">
-            <Link to="/activity" className="btn btn-link btn-sm text-decoration-none">
-              View all
-            </Link>
-            <button className="btn btn-link btn-sm text-decoration-none text-danger">
-              Clear all
+            <button className="btn btn-outline-secondary position-relative me-2">
+              <AiOutlineWechatWork />
+              <span
+                className="position-absolute top-0 start-50 translate-middle badge bg-danger rounded-circle"
+                style={{ zIndex: "999" }}
+              >
+                8
+              </span>
             </button>
+          </Link>
+          <button
+            className="btn btn-outline-secondary position-relative"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <BsBell />
+            <span
+              className="position-absolute top-0 start-50 translate-middle badge bg-danger rounded-circle"
+              style={{ zIndex: "999" }}
+            >
+              13
+            </span>
+          </button>
+          <div
+            className="dropdown-menu dropdown-menu-end p-0"
+            style={{ width: "350px", maxHeight: "400px", overflow: "auto" }}
+          >
+            {/* Notification Header */}
+            <div className="p-2">
+              {notificationsData.notifications.map((notification) => (
+                <div
+                  key={notification.id}
+                  className="dropdown-item p-2 d-flex align-items-start"
+                >
+                  <img
+                    src={notification.image}
+                    alt=""
+                    className="rounded-circle me-2"
+                    width="40"
+                    height="40"
+                  />
+                  <div className="flex-grow-1">
+                    <div className="small">
+                      <span className="fw-semibold">{notification.name}</span>{" "}
+                      {notification.message}
+                    </div>
+                    <div className="text-muted small">{notification.time}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="p-2 border-top d-flex justify-content-between">
+              <Link
+                to="/activity"
+                className="btn btn-link btn-sm text-decoration-none"
+              >
+                View all
+              </Link>
+              <button className="btn btn-link btn-sm text-decoration-none text-danger">
+                Clear all
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
         {/* User Profile */}
         <div className="dropdown">
@@ -287,10 +315,7 @@ const Header = () => {
               <hr className="dropdown-divider" />
             </li>
             <li>
-              <button 
-                className="dropdown-item" 
-                onClick={handleLogout}
-              >
+              <button className="dropdown-item" onClick={handleLogout}>
                 Logout
               </button>
             </li>

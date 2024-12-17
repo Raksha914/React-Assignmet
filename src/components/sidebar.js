@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import '../theme/theme.css';
+import "../theme/theme.css";
 // Updated imports for all icons
 import {
   // Dashboard & Main Menu Icons
@@ -16,8 +16,8 @@ import {
   MdBusiness,
   MdLocationOn,
   MdHelp,
-  MdBugReport
-} from 'react-icons/md';
+  MdBugReport,
+} from "react-icons/md";
 
 import {
   // Application Icons
@@ -33,8 +33,8 @@ import {
   IoKeyOutline,
   IoGlobeOutline,
   IoCashOutline,
-  IoServerOutline
-} from 'react-icons/io5';
+  IoServerOutline,
+} from "react-icons/io5";
 
 import {
   // CRM Icons
@@ -57,8 +57,8 @@ import {
   FaQuestionCircle,
   FaBook,
   FaHistory,
-  FaLayerGroup
-} from 'react-icons/fa';
+  FaLayerGroup,
+} from "react-icons/fa";
 
 import {
   // Additional Icons
@@ -68,8 +68,8 @@ import {
   BiCog,
   BiLock,
   BiError,
-  BiSupport
-} from 'react-icons/bi';
+  BiSupport,
+} from "react-icons/bi";
 
 import {
   // System & Settings Icons
@@ -82,8 +82,8 @@ import {
   AiOutlineBank,
   AiOutlinePercentage,
   AiOutlineCloud,
-  AiOutlineStop
-} from 'react-icons/ai';
+  AiOutlineStop,
+} from "react-icons/ai";
 
 import {
   // Authentication & Error Icons
@@ -94,34 +94,34 @@ import {
   RiShieldKeyholeLine,
   RiLockLine,
   RiErrorWarningLine,
-  RiPagesLine
-} from 'react-icons/ri';
+  RiPagesLine,
+} from "react-icons/ri";
 
 import {
   // Content & Support Icons
   HiOutlineDocumentText,
   HiOutlineLocationMarker,
   HiOutlineChatAlt,
-  HiOutlineTicket
-} from 'react-icons/hi';
+  HiOutlineTicket,
+} from "react-icons/hi";
 
 import {
   // Membership & Additional Icons
   VscSourceControl,
   VscFeedback,
-  VscQuestion
-} from 'react-icons/vsc';
+  VscQuestion,
+} from "react-icons/vsc";
 
 import {
   // Financial & System Icons
-  SiGoogleanalytics
-} from 'react-icons/si';
+  SiGoogleanalytics,
+} from "react-icons/si";
 
 import {
   // Additional System Icons
   TbCookie,
-  TbBrandGravatar
-} from 'react-icons/tb';
+  TbBrandGravatar,
+} from "react-icons/tb";
 import "./sidebar.css";
 import { ThemeContext } from "../theme/themeContext";
 
@@ -139,18 +139,22 @@ const Sidebar = () => {
     financialSettings: false,
     storageSettings: false,
     authentication: false,
-    errorPages: false
+    errorPages: false,
   });
 
   const toggleDropdown = (menu) => {
-    setDropdownOpen(prev => ({
+    setDropdownOpen((prev) => ({
       ...prev,
-      [menu]: !prev[menu]
+      [menu]: !prev[menu],
     }));
   };
 
   return (
-    <div className={`sidebar ${theme === 'dark' ? "sidebar-custom-dark" : "sidebar-custom-light"}`}>
+    <div
+      className={`sidebar ${
+        theme === "dark" ? "sidebar-custom-dark" : "sidebar-custom-light"
+      }`}
+    >
       {/* User Profile Section */}
       <div className="user-profile">
         <Link to="/profile" className="link" style={{ textDecoration: "none" }}>
@@ -160,7 +164,7 @@ const Sidebar = () => {
             className="profile-img"
           />
           <div className="user-information">
-            <h5 className="text-dark">Waseem Akram</h5>
+            <h5 className="text-dark">Raksha</h5>
             <p>Web Developer</p>
           </div>
         </Link>
@@ -191,7 +195,8 @@ const Sidebar = () => {
             </li>
             <li className="submenu-item">
               <Link to="/dashboard">
-                <MdOutlineWorkspaces className="submenu-icon" /> Project Dashboard
+                <MdOutlineWorkspaces className="submenu-icon" /> Project
+                Dashboard
               </Link>
             </li>
           </ul>
@@ -372,7 +377,6 @@ const Sidebar = () => {
           </li>
         </ul>
 
-
         {/* User Management Section */}
         <ul className="menu">
           <li className="menu-title">User Management</li>
@@ -437,67 +441,56 @@ const Sidebar = () => {
         <ul className="menu">
           <li className="menu-title">Settings</li>
           <Link to="/profile">
-          <li
-            className="menu-item">
-            <MdSettings className="menu-icon" />
-            General Settings
-          </li>
+            <li className="menu-item">
+              <MdSettings className="menu-icon" />
+              General Settings
+            </li>
           </Link>
 
           <Link to="/profile">
-          <li
-            className="menu-item"
-           
-          >
-            <AiOutlineGlobal className="menu-icon" />
-            Website Settings
-            
-          </li>
+            <li className="menu-item">
+              <AiOutlineGlobal className="menu-icon" />
+              Website Settings
+            </li>
           </Link>
 
           {/* App Settings */}
           <Link to="/profile">
-          <li
-            className="menu-item"
-            
-          >
-            <AiFillSetting className="menu-icon" />
-            App Settings
-            
-          </li>
+            <li className="menu-item">
+              <AiFillSetting className="menu-icon" />
+              App Settings
+            </li>
           </Link>
           {/* System Settings */}
           <Link to="/profile">
-          <li
-            className="menu-item"
-          >
-            <IoSettingsOutline className="menu-icon" />
-            System Settings
-          </li>
+            <li className="menu-item">
+              <IoSettingsOutline className="menu-icon" />
+              System Settings
+            </li>
           </Link>
 
           {/* Financial Settings */}
           <Link to="/profile">
-          <li
-            className="menu-item">
-            <IoCashOutline className="menu-icon" />
-            Financial Settings
-          </li>
+            <li className="menu-item">
+              <IoCashOutline className="menu-icon" />
+              Financial Settings
+            </li>
           </Link>
           {/* Storage Settings */}
           <Link to="/profile">
-          <li
-            className="menu-item" >
-            <MdStorage className="menu-icon" />
-            Storage Settings
-          </li>
+            <li className="menu-item">
+              <MdStorage className="menu-icon" />
+              Storage Settings
+            </li>
           </Link>
 
           {/* Pages Section */}
           <ul className="menu">
             <li className="menu-title">Pages</li>
             <li
-              className={`menu-item ${dropdownOpen.authentication ? "active" : ""}`}
+              className={`menu-item ${
+                dropdownOpen.authentication ? "active" : ""
+              }`}
               onClick={() => toggleDropdown("authentication")}
             >
               <BiLock className="menu-icon" />
